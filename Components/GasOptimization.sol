@@ -29,7 +29,9 @@ contract GasOptimization {
         // 2.加载状态变量到内存
         uint _total = total;
         uint len = nums.length;
-        // 3.循环改为{++i}
+        // 3.循环改为{++i} 
+        // ++i是预递增操作，只需要两个步骤：增加i的值、返回i的值
+        // i++是后递增操作，需要4个步骤：保存i的旧值、递增i的值，并存放到一个内存临时变量、返回i的旧值、将内存临时变量赋给i
         for (uint i = 0; i < len; i=unchecked_inc(i)) {
             // 4.缓存数组元素
             uint num = nums[i];
